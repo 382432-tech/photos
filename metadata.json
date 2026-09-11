@@ -1,0 +1,6 @@
+{
+  "name": "Photos",
+  "description": "A blank canvas ready for building.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
