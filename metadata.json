@@ -1,6 +1,6 @@
 {
   "name": "Photos",
-  "description": "A blank canvas ready for building.",
+  "description": "A 9-photo grid displayed in 3 rows and 3 columns with equal dimensions and titles.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
