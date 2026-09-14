@@ -9,10 +9,19 @@ interface PhotoCardProps {
 
 export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) => {
   const [hasError, setHasError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Fallback SVG data URI in case remote image fails
-  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="%23f3f4f6"><rect width="600" height="600" fill="%23e5e7eb"/><text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="%236b7280">Photo ${index + 1}</text><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="16" fill="%239ca3af">Placeholder</text></svg>`;
+  // High-fidelity fallback SVG in case of network restriction or ad-blocker
+  const sportThemeIcons: Record<Photo['category'], string> = {
+    Soccer: '⚽',
+    Volleyball: '🏐',
+    Baseball: '⚾'
+  };
+
+  const categoryBadgeColor: Record<Photo['category'], string> = {
+    Soccer: 'bg-emerald-600 text-white',
+    Volleyball: 'bg-amber-600 text-white',
+    Baseball: 'bg-rose-600 text-white'
+  };
 
   return (
     <article
@@ -23,33 +32,42 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
       {/* Equal dimension container (1:1 square aspect ratio) */}
       <div
         id={`photo-img-container-${photo.id}`}
-        className="relative w-full aspect-square overflow-hidden bg-neutral-100"
+        className="relative w-full aspect-square overflow-hidden bg-neutral-100 flex items-center justify-center"
       >
-        {!isLoaded && !hasError && (
-          <div
-            id={`photo-skeleton-${photo.id}`}
-            className="absolute inset-0 animate-pulse bg-neutral-200"
-            aria-hidden="true"
+        {!hasError ? (
+          <img
+            id={`photo-img-${photo.id}`}
+            src={photo.imageUrl}
+            alt={photo.placeholderAlt || photo.title}
+            crossOrigin="anonymous"
+            loading="eager"
+            onError={() => setHasError(true)}
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
+        ) : (
+          <div
+            id={`photo-fallback-${photo.id}`}
+            className="flex h-full w-full flex-col items-center justify-center bg-neutral-100 p-4 text-center"
+          >
+            <span className="text-4xl select-none mb-2" role="img" aria-label={photo.category}>
+              {sportThemeIcons[photo.category]}
+            </span>
+            <span className="text-xs font-semibold text-neutral-700">{photo.title}</span>
+            <span className="text-[11px] text-neutral-400 mt-0.5">{photo.category}</span>
+          </div>
         )}
-        <img
-          id={`photo-img-${photo.id}`}
-          src={hasError ? fallbackSvg : photo.imageUrl}
-          alt={photo.placeholderAlt || photo.title}
-          referrerPolicy="no-referrer"
-          loading="lazy"
-          onLoad={() => setIsLoaded(true)}
-          onError={() => {
-            setHasError(true);
-            setIsLoaded(true);
-          }}
-          className={`h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
+
+        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+          <span
+            id={`photo-cat-${photo.id}`}
+            className={`rounded-md px-2 py-0.5 text-[11px] font-semibold tracking-wide shadow-xs ${categoryBadgeColor[photo.category]}`}
+          >
+            {photo.category}
+          </span>
+        </div>
         <div
           id={`photo-badge-${photo.id}`}
-          className="absolute top-2.5 right-2.5 rounded-md bg-neutral-900/60 backdrop-blur-xs px-2 py-0.5 text-[11px] font-medium text-white shadow-xs"
+          className="absolute top-2.5 right-2.5 rounded-md bg-neutral-900/70 backdrop-blur-xs px-2 py-0.5 text-[11px] font-medium text-white shadow-xs"
         >
           #{index + 1}
         </div>

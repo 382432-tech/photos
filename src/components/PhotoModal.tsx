@@ -26,6 +26,12 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
 
   if (!photo) return null;
 
+  const categoryBadgeColor: Record<Photo['category'], string> = {
+    Soccer: 'bg-emerald-600 text-white',
+    Volleyball: 'bg-amber-600 text-white',
+    Baseball: 'bg-rose-600 text-white'
+  };
+
   return (
     <div
       id="photo-modal-backdrop"
@@ -41,7 +47,7 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
           id="btn-close-modal"
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/75 transition-colors focus:outline-hidden"
+          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/75 transition-colors focus:outline-hidden cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -57,6 +63,14 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
         </div>
 
         <div id="modal-details" className="p-5 bg-white">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span
+              id="modal-category-badge"
+              className={`rounded-md px-2.5 py-0.5 text-xs font-semibold tracking-wide ${categoryBadgeColor[photo.category]}`}
+            >
+              {photo.category}
+            </span>
+          </div>
           <h3 id="modal-title" className="text-xl font-bold text-neutral-900">
             {photo.title}
           </h3>

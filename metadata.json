@@ -1,6 +1,6 @@
 {
   "name": "Photos",
-  "description": "A 9-photo grid displayed in 3 rows and 3 columns with equal dimensions and titles.",
+  "description": "A 9-photo sports gallery in a 3x3 grid featuring soccer in row 1, volleyball in row 2, and baseball in row 3.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

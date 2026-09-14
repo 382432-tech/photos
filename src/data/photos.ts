@@ -1,67 +1,81 @@
 import { Photo } from '../types';
 
 export const PHOTO_ITEMS: Photo[] = [
+  // Row 1: Soccer (1, 2, 3)
   {
-    id: 'photo-1',
-    title: 'Misty Alpine Lake',
-    imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Misty Alpine Lake landscape placeholder',
-    description: 'Calm morning reflections across a serene alpine mountain lake.'
+    id: 'soccer-1',
+    title: 'Match Kickoff',
+    category: 'Soccer',
+    imageUrl: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Soccer ball on stadium grass field under bright floodlights',
+    description: 'Official match ball placed on the penalty spot under stadium floodlights.'
   },
   {
-    id: 'photo-2',
-    title: 'Sunny Coastal Shore',
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Sunny Coastal Shore placeholder',
-    description: 'Golden sunlight touching gentle turquoise waves along the shoreline.'
+    id: 'soccer-2',
+    title: 'Striker in Action',
+    category: 'Soccer',
+    imageUrl: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Soccer player in action kicking ball',
+    description: 'Dynamic forward strike aiming towards the net.'
   },
   {
-    id: 'photo-3',
-    title: 'Deep Pine Forest',
-    imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Deep Pine Forest placeholder',
-    description: 'Sunbeams piercing through ancient evergreen canopies.'
+    id: 'soccer-3',
+    title: 'Stadium Arena',
+    category: 'Soccer',
+    imageUrl: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Full football stadium pitch and grandstands',
+    description: 'Packed grandstands overlooking the pristine green pitch during championship night.'
+  },
+
+  // Row 2: Volleyball (4, 5, 6)
+  {
+    id: 'volleyball-1',
+    title: 'Beach Volleyball Spike',
+    category: 'Volleyball',
+    imageUrl: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Volleyball over the net on sunny sand court',
+    description: 'Powerful spike attack soaring above the net against a bright blue sky.'
   },
   {
-    id: 'photo-4',
-    title: 'Golden Sand Dunes',
-    imageUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Golden Sand Dunes placeholder',
-    description: 'Sculpted wind ripples shifting across glowing desert sands.'
+    id: 'volleyball-2',
+    title: 'Court Action',
+    category: 'Volleyball',
+    imageUrl: 'https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Volleyball player jumping to set ball at net',
+    description: 'Precision setter coordinating a fast-paced offensive play.'
   },
   {
-    id: 'photo-5',
-    title: 'Architectural Monolith',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Architectural Monolith placeholder',
-    description: 'Geometric perspective looking up at modern glass and steel facades.'
+    id: 'volleyball-3',
+    title: 'Match Ball Serve',
+    category: 'Volleyball',
+    imageUrl: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Official volleyball on court surface',
+    description: 'High-speed jump serve spinning across the defensive reception line.'
+  },
+
+  // Row 3: Baseball (7, 8, 9)
+  {
+    id: 'baseball-1',
+    title: 'Batter at Home Plate',
+    category: 'Baseball',
+    imageUrl: 'https://images.unsplash.com/photo-1508802277858-5b97affb74ab?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Baseball batter waiting at home plate with bat ready',
+    description: 'Focused batter positioned in the batter box tracking the incoming fastball.'
   },
   {
-    id: 'photo-6',
-    title: 'Emerald Valley Peak',
-    imageUrl: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Emerald Valley Peak placeholder',
-    description: 'Lush green ridges cascading down into fog-blanketed lowlands.'
+    id: 'baseball-2',
+    title: 'Pitcher Mound Delivery',
+    category: 'Baseball',
+    imageUrl: 'https://images.unsplash.com/photo-1562077772-3ab121866815?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Baseball pitcher throwing a pitch from the mound',
+    description: 'Full windup release delivering a high-speed strike across the strike zone.'
   },
   {
-    id: 'photo-7',
-    title: 'Warm Sunset Horizon',
-    imageUrl: 'https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Warm Sunset Horizon placeholder',
-    description: 'Vibrant amber and rose hues painted across evening skies.'
-  },
-  {
-    id: 'photo-8',
-    title: 'Autumn Canopy Road',
-    imageUrl: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Autumn Canopy Road placeholder',
-    description: 'A winding pathway covered in crisp rust and amber leaves.'
-  },
-  {
-    id: 'photo-9',
-    title: 'Mirror Water Basin',
-    imageUrl: 'https://images.unsplash.com/photo-1439853941329-a99ce0457e8a?auto=format&fit=crop&w=600&h=600&q=80',
-    placeholderAlt: 'Mirror Water Basin placeholder',
-    description: 'Crystal-clear glacier basin reflecting clear blue skies.'
+    id: 'baseball-3',
+    title: 'Ball & Leather Glove',
+    category: 'Baseball',
+    imageUrl: 'https://images.unsplash.com/photo-1516731415730-0c607149933a?auto=format&fit=crop&w=800&q=80',
+    placeholderAlt: 'Baseball sitting in a classic leather fielder glove',
+    description: 'Classic stitched baseball resting in a worn leather glove on the dugout grass.'
   }
 ];
