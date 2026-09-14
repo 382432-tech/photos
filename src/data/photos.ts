@@ -1,5 +1,7 @@
 import { Photo } from '../types';
 import soccerKickoffImg from '../../images/soccer-kickoff.jpeg';
+import baseball1Img from '../../images/baseball-1.jpeg';
+import baseball2Img from '../../images/baseball-2.jpeg';
 
 export const PHOTO_ITEMS: Photo[] = [
   // Row 1: Soccer (1, 2, 3)
@@ -59,7 +61,7 @@ export const PHOTO_ITEMS: Photo[] = [
     id: 'baseball-1',
     title: 'Batter at Home Plate',
     category: 'Baseball',
-    imageUrl: 'https://images.unsplash.com/photo-1508802277858-5b97affb74ab?auto=format&fit=crop&w=800&q=80',
+    imageUrl: baseball1Img,
     placeholderAlt: 'Baseball batter waiting at home plate with bat ready',
     description: 'Focused batter positioned in the batter box tracking the incoming fastball.'
   },
@@ -67,7 +69,7 @@ export const PHOTO_ITEMS: Photo[] = [
     id: 'baseball-2',
     title: 'Pitcher Mound Delivery',
     category: 'Baseball',
-    imageUrl: 'https://images.unsplash.com/photo-1562077772-3ab121866815?auto=format&fit=crop&w=800&q=80',
+    imageUrl: baseball2Img,
     placeholderAlt: 'Baseball pitcher throwing a pitch from the mound',
     description: 'Full windup release delivering a high-speed strike across the strike zone.'
   },
