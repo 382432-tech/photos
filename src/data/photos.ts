@@ -1,4 +1,5 @@
 import { Photo } from '../types';
+import soccerKickoffImg from '../../images/soccer-kickoff.jpeg';
 
 export const PHOTO_ITEMS: Photo[] = [
   // Row 1: Soccer (1, 2, 3)
@@ -6,9 +7,9 @@ export const PHOTO_ITEMS: Photo[] = [
     id: 'soccer-1',
     title: 'Match Kickoff',
     category: 'Soccer',
-    imageUrl: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Soccer ball on stadium grass field under bright floodlights',
-    description: 'Official match ball placed on the penalty spot under stadium floodlights.'
+    imageUrl: soccerKickoffImg,
+    placeholderAlt: 'Soccer ball on field',
+    description: 'Official soccer match ball on the pitch.'
   },
   {
     id: 'soccer-2',

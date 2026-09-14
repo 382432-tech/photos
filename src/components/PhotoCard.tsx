@@ -39,7 +39,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
             id={`photo-img-${photo.id}`}
             src={photo.imageUrl}
             alt={photo.placeholderAlt || photo.title}
-            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
             loading="eager"
             onError={() => setHasError(true)}
             className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
