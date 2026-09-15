@@ -1,5 +1,6 @@
 import { Photo } from '../types';
 import soccerKickoffImg from '../../images/soccer-kickoff.jpeg';
+import soccer2Img from '../../images/soccer-2.jpeg';
 import baseball1Img from '../../images/baseball-1.jpeg';
 import baseball2Img from '../../images/baseball-2.jpeg';
 
@@ -17,9 +18,9 @@ export const PHOTO_ITEMS: Photo[] = [
     id: 'soccer-2',
     title: 'Striker in Action',
     category: 'Soccer',
-    imageUrl: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Soccer player in action kicking ball',
-    description: 'Dynamic forward strike aiming towards the net.'
+    imageUrl: soccer2Img,
+    placeholderAlt: 'Soccer striker in action on the pitch',
+    description: 'Dynamic World Cup match action on the field.'
   },
   {
     id: 'soccer-3',
