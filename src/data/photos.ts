@@ -2,6 +2,9 @@ import { Photo } from '../types';
 import soccerKickoffImg from '../../images/soccer-kickoff.jpeg';
 import soccer2Img from '../../images/soccer-2.jpeg';
 import soccer3Img from '../../images/soccer-3.jpg';
+import volleyball1Img from '../../images/volleyball-1.jpg';
+import volleyball2Img from '../../images/volleyball-2.jpeg';
+import volleyball3Img from '../../images/volleyball-3.jpg';
 import baseball1Img from '../../images/baseball-1.jpeg';
 import baseball2Img from '../../images/baseball-2.jpeg';
 
@@ -35,27 +38,27 @@ export const PHOTO_ITEMS: Photo[] = [
   // Row 2: Volleyball (4, 5, 6)
   {
     id: 'volleyball-1',
-    title: 'Beach Volleyball Spike',
+    title: 'Championship Spike',
     category: 'Volleyball',
-    imageUrl: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Volleyball over the net on sunny sand court',
-    description: 'Powerful spike attack soaring above the net against a bright blue sky.'
+    imageUrl: volleyball1Img,
+    placeholderAlt: 'Gilberto Godoy Filho attacking ball in Brazil vs Argentina volleyball match',
+    description: 'Brazil vs Argentina classic volleyball spike action at the net.'
   },
   {
     id: 'volleyball-2',
-    title: 'Court Action',
+    title: 'Net Battle',
     category: 'Volleyball',
-    imageUrl: 'https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Volleyball player jumping to set ball at net',
-    description: 'Precision setter coordinating a fast-paced offensive play.'
+    imageUrl: volleyball2Img,
+    placeholderAlt: 'Volleyball player attacking above the net block',
+    description: 'Intense aerial battle at the net between hitter and blockers.'
   },
   {
     id: 'volleyball-3',
-    title: 'Match Ball Serve',
+    title: 'Team USA Action',
     category: 'Volleyball',
-    imageUrl: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Official volleyball on court surface',
-    description: 'High-speed jump serve spinning across the defensive reception line.'
+    imageUrl: volleyball3Img,
+    placeholderAlt: 'USA Volleyball team player hitting during tournament play',
+    description: 'High-flying USA Volleyball tournament action.'
   },
 
   // Row 3: Baseball (7, 8, 9)
