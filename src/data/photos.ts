@@ -1,6 +1,7 @@
 import { Photo } from '../types';
 import soccerKickoffImg from '../../images/soccer-kickoff.jpeg';
 import soccer2Img from '../../images/soccer-2.jpeg';
+import soccer3Img from '../../images/soccer-3.jpg';
 import baseball1Img from '../../images/baseball-1.jpeg';
 import baseball2Img from '../../images/baseball-2.jpeg';
 
@@ -24,11 +25,11 @@ export const PHOTO_ITEMS: Photo[] = [
   },
   {
     id: 'soccer-3',
-    title: 'Stadium Arena',
+    title: 'Super Cup Victory',
     category: 'Soccer',
-    imageUrl: 'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80',
-    placeholderAlt: 'Full football stadium pitch and grandstands',
-    description: 'Packed grandstands overlooking the pristine green pitch during championship night.'
+    imageUrl: soccer3Img,
+    placeholderAlt: 'Cristiano Ronaldo celebrating UEFA Super Cup with Real Madrid',
+    description: 'Cristiano Ronaldo celebrating UEFA Super Cup triumph with Real Madrid.'
   },
 
   // Row 2: Volleyball (4, 5, 6)
