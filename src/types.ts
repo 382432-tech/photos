@@ -5,4 +5,7 @@ export interface Photo {
   imageUrl: string;
   placeholderAlt: string;
   description?: string;
+  paragraph: string;
+  linkUrl: string;
+  linkLabel: string;
 }

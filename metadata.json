@@ -1,6 +1,6 @@
 {
   "name": "Photos",
-  "description": "A 9-photo sports gallery in a 3x3 grid featuring soccer in row 1, volleyball in row 2, and baseball in row 3.",
+  "description": "A curated 9-photo sports exhibition across soccer, volleyball, and baseball, complete with historical paragraphs and reference links.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

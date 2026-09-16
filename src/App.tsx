@@ -3,11 +3,13 @@ import { PHOTO_ITEMS } from './data/photos';
 import { Photo } from './types';
 import { PhotoCard } from './components/PhotoCard';
 import { PhotoModal } from './components/PhotoModal';
-import { Trophy } from 'lucide-react';
+import { ExhibitionSummaryModal } from './components/ExhibitionSummaryModal';
+import { Trophy, FileText } from 'lucide-react';
 import blackHoleBg from '../images/black-hole-bg.jpg';
 
 export const App: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [showSummaryModal, setShowSummaryModal] = useState<boolean>(false);
 
   // Group photos into the 3 rows: Soccer, Volleyball, Baseball
   const soccerPhotos = PHOTO_ITEMS.filter((p) => p.category === 'Soccer');
@@ -48,8 +50,19 @@ export const App: React.FC = () => {
               </p>
             </div>
           </div>
-          <div id="counter-badge" className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-neutral-200 backdrop-blur-xs">
-            {PHOTO_ITEMS.length} Photos
+          <div className="flex items-center gap-2.5">
+            <button
+              id="btn-summary-link"
+              onClick={() => setShowSummaryModal(true)}
+              className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 px-3.5 py-1 text-xs font-semibold text-amber-300 transition-all cursor-pointer shadow-xs"
+              title="Read gallery summary"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              <span>Exhibition Summary</span>
+            </button>
+            <div id="counter-badge" className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-neutral-200 backdrop-blur-xs">
+              {PHOTO_ITEMS.length} Photos
+            </div>
           </div>
         </div>
       </header>
@@ -88,11 +101,26 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <footer id="main-footer" className="border-t border-white/10 bg-black/60 backdrop-blur-md py-6 mt-8">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-400">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
           <span>9 Sports Photos · Soccer, Volleyball &amp; Baseball</span>
+          <button
+            id="footer-summary-link"
+            onClick={() => setShowSummaryModal(true)}
+            className="text-amber-400 hover:text-amber-300 underline underline-offset-2 transition-colors cursor-pointer"
+          >
+            Read Exhibition Summary
+          </button>
           <span>Created for Subhan</span>
         </div>
       </footer>
+
+      {/* Exhibition Summary Modal (Includes paragraph for each image inside the link) */}
+      <ExhibitionSummaryModal
+        isOpen={showSummaryModal}
+        onClose={() => setShowSummaryModal(false)}
+        photos={PHOTO_ITEMS}
+        onSelectPhoto={(photo) => setSelectedPhoto(photo)}
+      />
 
       {/* Lightbox / Modal */}
       <PhotoModal

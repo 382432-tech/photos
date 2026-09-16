@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 import { Photo } from '../types';
 
 interface PhotoCardProps {
@@ -73,23 +74,40 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
         </div>
       </div>
 
-      {/* Card Details & Title */}
-      <div id={`photo-info-${photo.id}`} className="p-3.5 sm:p-4 flex flex-col justify-center">
-        <h2
-          id={`photo-title-${photo.id}`}
-          className="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-amber-300 transition-colors line-clamp-1"
-          title={photo.title}
-        >
-          {photo.title}
-        </h2>
-        {photo.description && (
-          <p
-            id={`photo-desc-${photo.id}`}
-            className="mt-1 text-xs text-neutral-400 line-clamp-1"
+      {/* Card Details, Paragraph & External Link */}
+      <div id={`photo-info-${photo.id}`} className="p-4 flex flex-col flex-1 justify-between">
+        <div>
+          <h2
+            id={`photo-title-${photo.id}`}
+            className="text-base font-semibold text-white tracking-tight group-hover:text-amber-300 transition-colors line-clamp-1"
+            title={photo.title}
           >
-            {photo.description}
+            {photo.title}
+          </h2>
+          <p
+            id={`photo-paragraph-${photo.id}`}
+            className="mt-2 text-xs leading-relaxed text-neutral-300 line-clamp-3"
+            title={photo.paragraph}
+          >
+            {photo.paragraph}
           </p>
-        )}
+        </div>
+
+        <div className="mt-3.5 pt-2.5 border-t border-white/10 flex items-center justify-between">
+          <a
+            id={`photo-link-${photo.id}`}
+            href={photo.linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-400 hover:text-amber-300 transition-colors group/link"
+            title={`Visit ${photo.linkLabel}`}
+          >
+            <span className="truncate max-w-[200px]">{photo.linkLabel}</span>
+            <ExternalLink className="h-3.5 w-3.5 shrink-0 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+          </a>
+          <span className="text-[11px] text-neutral-400">Click to expand</span>
+        </div>
       </div>
     </article>
   );
