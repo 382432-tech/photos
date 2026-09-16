@@ -26,13 +26,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
   return (
     <article
       id={`photo-card-${photo.id}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-neutral-200/80 bg-white shadow-xs transition-all duration-300 hover:shadow-md hover:border-neutral-300 cursor-pointer"
+      className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-neutral-900/75 backdrop-blur-md shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-white/25 hover:bg-neutral-900/90 cursor-pointer"
       onClick={() => onSelect?.(photo)}
     >
       {/* Equal dimension container (1:1 square aspect ratio) */}
       <div
         id={`photo-img-container-${photo.id}`}
-        className="relative w-full aspect-square overflow-hidden bg-neutral-100 flex items-center justify-center"
+        className="relative w-full aspect-square overflow-hidden bg-neutral-950 flex items-center justify-center"
       >
         {!hasError ? (
           <img
@@ -47,12 +47,12 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
         ) : (
           <div
             id={`photo-fallback-${photo.id}`}
-            className="flex h-full w-full flex-col items-center justify-center bg-neutral-100 p-4 text-center"
+            className="flex h-full w-full flex-col items-center justify-center bg-neutral-950 p-4 text-center"
           >
             <span className="text-4xl select-none mb-2" role="img" aria-label={photo.category}>
               {sportThemeIcons[photo.category]}
             </span>
-            <span className="text-xs font-semibold text-neutral-700">{photo.title}</span>
+            <span className="text-xs font-semibold text-neutral-200">{photo.title}</span>
             <span className="text-[11px] text-neutral-400 mt-0.5">{photo.category}</span>
           </div>
         )}
@@ -67,7 +67,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
         </div>
         <div
           id={`photo-badge-${photo.id}`}
-          className="absolute top-2.5 right-2.5 rounded-md bg-neutral-900/70 backdrop-blur-xs px-2 py-0.5 text-[11px] font-medium text-white shadow-xs"
+          className="absolute top-2.5 right-2.5 rounded-md bg-black/60 backdrop-blur-xs px-2 py-0.5 text-[11px] font-medium text-white shadow-xs border border-white/10"
         >
           #{index + 1}
         </div>
@@ -77,7 +77,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
       <div id={`photo-info-${photo.id}`} className="p-3.5 sm:p-4 flex flex-col justify-center">
         <h2
           id={`photo-title-${photo.id}`}
-          className="text-sm sm:text-base font-semibold text-neutral-800 tracking-tight group-hover:text-blue-600 transition-colors line-clamp-1"
+          className="text-sm sm:text-base font-semibold text-white tracking-tight group-hover:text-amber-300 transition-colors line-clamp-1"
           title={photo.title}
         >
           {photo.title}
@@ -85,7 +85,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = ({ photo, index, onSelect }) 
         {photo.description && (
           <p
             id={`photo-desc-${photo.id}`}
-            className="mt-1 text-xs text-neutral-500 line-clamp-1"
+            className="mt-1 text-xs text-neutral-400 line-clamp-1"
           >
             {photo.description}
           </p>

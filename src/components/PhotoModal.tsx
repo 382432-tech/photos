@@ -40,19 +40,19 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
     >
       <div
         id="photo-modal-card"
-        className="relative max-w-2xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 animate-in fade-in zoom-in-95 duration-200"
+        className="relative max-w-2xl w-full bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl border border-white/15 animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           id="btn-close-modal"
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/75 transition-colors focus:outline-hidden cursor-pointer"
+          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-black/85 transition-colors focus:outline-hidden cursor-pointer border border-white/10"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div id="modal-image-container" className="w-full aspect-square bg-neutral-900 overflow-hidden flex items-center justify-center">
+        <div id="modal-image-container" className="w-full aspect-square bg-neutral-950 overflow-hidden flex items-center justify-center">
           <img
             id="modal-image"
             src={photo.imageUrl}
@@ -62,7 +62,7 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
           />
         </div>
 
-        <div id="modal-details" className="p-5 bg-white">
+        <div id="modal-details" className="p-5 bg-neutral-900 border-t border-white/10">
           <div className="flex items-center gap-2 mb-1.5">
             <span
               id="modal-category-badge"
@@ -71,11 +71,11 @@ export const PhotoModal: React.FC<PhotoModalProps> = ({ photo, onClose }) => {
               {photo.category}
             </span>
           </div>
-          <h3 id="modal-title" className="text-xl font-bold text-neutral-900">
+          <h3 id="modal-title" className="text-xl font-bold text-white">
             {photo.title}
           </h3>
           {photo.description && (
-            <p id="modal-description" className="mt-1.5 text-sm text-neutral-600">
+            <p id="modal-description" className="mt-1.5 text-sm text-neutral-300">
               {photo.description}
             </p>
           )}
