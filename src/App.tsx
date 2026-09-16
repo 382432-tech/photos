@@ -4,12 +4,13 @@ import { Photo } from './types';
 import { PhotoCard } from './components/PhotoCard';
 import { PhotoModal } from './components/PhotoModal';
 import { ExhibitionSummaryModal } from './components/ExhibitionSummaryModal';
-import { Trophy, FileText } from 'lucide-react';
-import blackHoleBg from '../images/black-hole-bg.jpg';
+import { CosmicBackground } from './components/CosmicBackground';
+import { Trophy, FileText, Orbit } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [showSummaryModal, setShowSummaryModal] = useState<boolean>(false);
+  const [isCosmicMotionActive, setIsCosmicMotionActive] = useState<boolean>(true);
 
   // Group photos into the 3 rows: Soccer, Volleyball, Baseball
   const soccerPhotos = PHOTO_ITEMS.filter((p) => p.category === 'Soccer');
@@ -24,15 +25,8 @@ export const App: React.FC = () => {
 
   return (
     <div id="app-container" className="relative min-h-screen text-white flex flex-col selection:bg-amber-500 selection:text-black">
-      {/* Black Hole Background */}
-      <div
-        id="black-hole-bg"
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: `url(${blackHoleBg})` }}
-      >
-        {/* Subtle cosmic overlay for text and photo contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/85 backdrop-blur-[0.5px]" />
-      </div>
+      {/* Animated Cosmic Black Hole Background */}
+      <CosmicBackground isMotionActive={isCosmicMotionActive} />
 
       {/* Header */}
       <header id="main-header" className="sticky top-0 z-30 border-b border-white/10 bg-black/65 backdrop-blur-md">
@@ -50,15 +44,30 @@ export const App: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <button
+              id="btn-toggle-motion"
+              onClick={() => setIsCosmicMotionActive((prev) => !prev)}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-all cursor-pointer shadow-xs ${
+                isCosmicMotionActive
+                  ? 'bg-amber-500/20 border-amber-400/40 text-amber-300 hover:bg-amber-500/30'
+                  : 'bg-white/10 border-white/15 text-neutral-300 hover:bg-white/15'
+              }`}
+              title={isCosmicMotionActive ? 'Pause cosmic background motion' : 'Resume cosmic background motion'}
+            >
+              <Orbit className={`h-3.5 w-3.5 ${isCosmicMotionActive ? 'animate-spin' : ''}`} style={{ animationDuration: '8s' }} />
+              <span className="hidden sm:inline">Cosmic Motion</span>
+              <span className="sm:hidden">{isCosmicMotionActive ? 'Motion' : 'Static'}</span>
+            </button>
             <button
               id="btn-summary-link"
               onClick={() => setShowSummaryModal(true)}
               className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 px-3.5 py-1 text-xs font-semibold text-amber-300 transition-all cursor-pointer shadow-xs"
-              title="Read gallery summary"
+              title="Read exhibition summary guide"
             >
               <FileText className="h-3.5 w-3.5" />
-              <span>Exhibition Summary</span>
+              <span className="hidden sm:inline">Exhibition Summary</span>
+              <span className="sm:hidden">Summary</span>
             </button>
             <div id="counter-badge" className="rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-medium text-neutral-200 backdrop-blur-xs">
               {PHOTO_ITEMS.length} Photos
